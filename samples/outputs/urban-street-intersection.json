@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "usedKnowledge": true,
+  "retrievedClauses": [
+    {
+      "doc": "Public order patrol — general reference clauses (sample)",
+      "text": "6. Street vending and begging: vending must be confined to designated areas; setting up stalls on carriageways, footways or near entrances that obstruct passage or gather crowds is prohibited. [Urban Appearance and Environmental Sanitation Administration Regulations (《城市市容和环境卫生管理条例》), Art. 14; Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 31]",
+      "score": 0.8488746876271654
+    },
+    {
+      "doc": "Public order patrol — general reference clauses (sample)",
+      "text": "8. Night-time safety: back alleys, underground car parks and isolated roads must have lighting and camera coverage to deter property crime.",
+      "score": 0.6546536707079772
+    },
+    {
+      "doc": "Public order patrol — general reference clauses (sample)",
+      "text": "3. Damage to public property: damaging street lights, guardrails, benches, walls or utility lines is prohibited; report defects for repair promptly. [Public Security Administration Punishment Law of the PRC (《中华人民共和国治安管理处罚法》), Art. 49]",
+      "score": 0.6099942813304187
+    },
+    {
+      "doc": "Public order patrol — general reference clauses (sample)",
+      "text": "7. Priority locations: increase patrol density and joint response around plazas, stations, commercial districts and campuses.",
+      "score": 0.5163977794943222
+    },
+    {
+      "doc": "Public order patrol — general reference clauses (sample)",
+      "text": "4. Unlawful assembly: noisy gatherings, blockades and distribution of prohibited materials must be dispersed and reported. [Public Security Administration Punishment Law of the PRC (《中华人民共和国治安管理处罚法》), Art. 23]",
+      "score": 0.4931969619160719
+    },
+    {
+      "doc": "Public order patrol — general reference clauses (sample)",
+      "text": "1. Fighting and assault: physical altercations and armed stand-offs must be stopped immediately and reported to the police. [Public Security Administration Punishment Law of the PRC (《中华人民共和国治安管理处罚法》), Art. 43]",
+      "score": 0.48038446141526137
+    }
+  ],
+  "elapsedMs": 19572,
+  "usage": {
+    "prompt_tokens": 3075,
+    "completion_tokens": 593,
+    "total_tokens": 3668
+  },
+  "riskLevel": "danger",
+  "scene": "An aerial view of a residential urban intersection with multiple street vendors, vehicles, pedestrians, and construction activity.",
+  "description": "The image shows a busy urban intersection in a residential area. There are several informal street vendors operating along the sidewalks and near the crosswalks, selling produce and goods from carts and tables. Vehicles, including cars, bicycles, and motorbikes, are navigating the road, with some stopped at pedestrian crossings. A construction site is visible on the left side, enclosed by green fencing and containing metal scaffolding materials. A small playground is located within a compound adjacent to one of the buildings. Pedestrians are walking or standing near vendor stalls, and traffic appears generally orderly. No overt signs of conflict, violence, or criminal behavior are immediately apparent.",
+  "findings": [
+    {
+      "type": "street vending obstruction",
+      "severity": "medium",
+      "evidence": "Multiple vendor stalls are set up directly on the sidewalk and encroach onto the pedestrian crossing area, particularly near the intersection.",
+      "explanation": "These stalls obstruct pedestrian movement and may create hazards for both walkers and cyclists, especially during peak hours. They also violate regulations regarding unauthorized use of public space and can contribute to congestion and safety risks.",
+      "regulation": "Urban Appearance and Environmental Sanitation Administration Regulations (《城市市容和环境卫生管理条例》), Art. 14; Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 31"
+    },
+    {
+      "type": "construction site safety hazard",
+      "severity": "low",
+      "evidence": "Construction materials, including metal frames and debris, are stored openly on the site without full containment or signage.",
+      "explanation": "While not currently causing an incident, unsecured construction materials could pose a risk if they fall or are accessed improperly. Proper fencing and signage should be maintained to prevent accidents.",
+      "regulation": "Occupational Safety and Health Law of the PRC (《中华人民共和国安全生产法》), Art. 41"
+    }
+  ],
+  "verdict": "The scene contains moderate public-order concerns primarily due to unauthorized street vending obstructing pedestrian pathways, but no immediate threats such as fighting, theft, or unlawful assembly are observed.",
+  "suggestions": [
+    "Direct relevant authorities to regulate or relocate street vendors to designated areas to ensure pedestrian safety and compliance with urban management laws.",
+    "Inspect the construction site for proper safety barriers and signage to mitigate potential hazards."
+  ],
+  "confidence": 0.85,
+  "raw": "```json\n{\n  \"scene\": \"An aerial view of a residential urban intersection with multiple street vendors, vehicles, pedestrians, and construction activity.\",\n  \"description\": \"The image shows a busy urban intersection in a residential area. There are several informal street vendors operating along the sidewalks and near the crosswalks, selling produce and goods from carts and tables. Vehicles, including cars, bicycles, and motorbikes, are navigating the road, with some stopped at pedestrian crossings. A construction site is visible on the left side, enclosed by green fencing and containing metal scaffolding materials. A small playground is located within a compound adjacent to one of the buildings. Pedestrians are walking or standing near vendor stalls, and traffic appears generally orderly. No overt signs of conflict, violence, or criminal behavior are immediately apparent.\",\n  \"findings\": [\n    {\n      \"type\": \"street vending obstruction\",\n      \"severity\": \"medium\",\n      \"evidence\": \"Multiple vendor stalls are set up directly on the sidewalk and encroach onto the pedestrian crossing area, particularly near the intersection.\",\n      \"explanation\": \"These stalls obstruct pedestrian movement and may create hazards for both walkers and cyclists, especially during peak hours. They also violate regulations regarding unauthorized use of public space and can contribute to congestion and safety risks.\",\n      \"regulation\": \"Urban Appearance and Environmental Sanitation Administration Regulations (《城市市容和环境卫生管理条例》), Art. 14; Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 31\"\n    },\n    {\n      \"type\": \"construction site safety hazard\",\n      \"severity\": \"low\",\n      \"evidence\": \"Construction materials, including metal frames and debris, are stored openly on the site without full containment or signage.\",\n      \"explanation\": \"While not currently causing an incident, unsecured construction materials could pose a risk if they fall or are accessed improperly. Proper fencing and signage should be maintained to prevent accidents.\",\n      \"regulation\": \"Occupational Safety and Health Law of the PRC (《中华人民共和国安全生产法》), Art. 41\"\n    }\n  ],\n  \"verdict\": \"The scene contains moderate public-order concerns primarily due to unauthorized street vending obstructing pedestrian pathways, but no immediate threats such as fighting, theft, or unlawful assembly are observed.\",\n  \"suggestions\": [\n    \"Direct relevant authorities to regulate or relocate street vendors to designated areas to ensure pedestrian safety and compliance with urban management laws.\",\n    \"Inspect the construction site for proper safety barriers and signage to mitigate potential hazards.\"\n  ],\n  \"confidence\": 0.85\n}\n```",
+  "parseError": false,
+  "image": "samples/images/urban-governance/street-intersection-aerial.jpg",
+  "task": "publicorder",
+  "model": "qwen-vl-max"
+}

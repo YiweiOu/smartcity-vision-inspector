@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart City Vision Inspector — AI-powered Urban Scene Inspection</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">SC</div>
+      <div class="brand-text">
+        <h1>Smart City Vision Inspector</h1>
+        <p>智慧城市 AI 视觉巡检 · Vision-LLM Scene Inspection</p>
+      </div>
+    </div>
+    <div class="topbar-tag">AI Vision Inspection · Self-Hosted Deployment</div>
+  </header>
+
+  <main class="container">
+    <!-- 1. Model configuration -->
+    <section class="card" id="config-card">
+      <div class="card-head">
+        <h2>① Model API Configuration</h2>
+        <span class="hint">Your API key is stored only in this browser and proxied through the local service — it is never uploaded to any third party</span>
+      </div>
+
+      <div class="mode-switch">
+        <button id="modeStandard" class="mode-btn active" type="button">Standard Mode</button>
+        <button id="modeAdvanced" class="mode-btn" type="button">Advanced Mode (Custom / Presets)</button>
+      </div>
+
+      <!-- Standard mode: built-in providers + models -->
+      <div id="standardBlock" class="config-grid">
+        <label>Provider
+          <select id="provider"></select>
+        </label>
+        <label>Model Version
+          <select id="model"></select>
+          <input id="modelCustom" type="text" placeholder="Enter a custom model name" hidden />
+        </label>
+        <label>API Key
+          <input id="apiKey" type="password" placeholder="Paste the API key of your account" autocomplete="off" />
+        </label>
+        <label class="baseurl-label">Endpoint baseURL
+          <input id="baseURL" type="text" placeholder="https://api.xxx.com/v1" />
+        </label>
+        <label class="temp-label">Sampling temperature (some models, e.g. Kimi, require =1)
+          <input id="temperature" type="number" step="0.1" min="0" max="2" value="0.2" />
+        </label>
+      </div>
+
+      <!-- Advanced mode: custom provider / endpoint / model name + saved presets -->
+      <div id="advancedBlock" hidden>
+        <div class="adv-row">
+          <label>Saved Presets
+            <select id="presetSel"></select>
+          </label>
+          <button id="savePreset" class="btn small" type="button">Save Preset</button>
+          <button id="delPreset" class="btn ghost small" type="button">Delete Preset</button>
+        </div>
+        <div class="config-grid">
+          <label>Preset Name
+            <input id="advName" type="text" placeholder="e.g. Company internal gateway / My own DeepSeek" />
+          </label>
+          <label>Endpoint baseURL
+            <input id="advBaseURL" type="text" placeholder="https://your-gateway.com/v1" />
+          </label>
+          <label>Model Name
+            <input id="advModel" type="text" placeholder="e.g. deepseek-v4-flash-vision-exp" spellcheck="false" />
+          </label>
+          <label>API Key
+            <input id="advApiKey" type="password" placeholder="Paste your API key" autocomplete="off" />
+          </label>
+          <label>Sampling temperature
+            <input id="advTemp" type="number" step="0.1" min="0" max="2" value="0.2" />
+          </label>
+          <label class="chk adv-vision"><input type="checkbox" id="advVision" checked /> This model supports vision / image input</label>
+        </div>
+        <p class="adv-tip">Tip: any gateway that speaks the OpenAI <code>/v1/chat/completions</code> protocol will work (Bearer authentication). Once a preset is saved, newly released models can be adopted by simply creating or editing a preset — no code changes required.</p>
+      </div>
+
+      <div class="model-id-row">
+        <span class="mil">Model name actually sent to the endpoint (you can verify / edit it):</span>
+        <input id="modelId" class="model-id-input" type="text" spellcheck="false" />
+        <button id="fetchModels" class="btn ghost small" type="button" title="Connect straight to the provider with the API key you entered and list the models genuinely available on your account">Fetch Model List from Provider</button>
+      </div>
+      <div id="modelsBox" class="models-box" hidden></div>
+
+      <div class="config-actions">
+        <button id="saveConfig" class="btn">Save Configuration</button>
+        <button id="testConfig" class="btn ghost">Test Connection</button>
+        <span id="configMsg" class="msg"></span>
+      </div>
+      <p class="provider-hint" id="providerHint"></p>
+    </section>
+
+    <!-- 2. Task and knowledge base -->
+    <section class="card" id="task-card">
+      <div class="card-head">
+        <h2>② Inspection Task and Prompt</h2>
+        <span class="hint">Switching scenes updates the prompt automatically; you can also write your own prompt below</span>
+      </div>
+      <div class="task-row">
+        <label>Scene Task
+          <select id="task"></select>
+        </label>
+        <label class="chk"><input type="checkbox" id="showTextModels" /> Show text-only models</label>
+      </div>
+      <label>Prompt (optional — leave blank to use the default)
+        <textarea id="customPrompt" placeholder="e.g. Are there any fire hazards in this scene?"></textarea>
+      </label>
+      <div class="default-prompt">Default prompt: <span id="defaultPromptText"></span></div>
+    </section>
+
+    <!-- 3. Knowledge base -->
+    <section class="card" id="kb-card">
+      <div class="card-head">
+        <h2>③ Regulation Knowledge Base</h2>
+        <span class="hint">Upload regulation / policy documents — relevant clauses are retrieved automatically as evidence during analysis</span>
+      </div>
+      <div class="kb-head-row">
+        <label>Knowledge Base Scene
+          <select id="kbScene">
+            <option value="fire">Fire Hazard</option>
+            <option value="security">Security Monitoring</option>
+            <option value="traffic">Traffic Order</option>
+            <option value="publicorder">Public Order Patrol</option>
+            <option value="custom">Custom</option>
+            <option value="all">All</option>
+          </select>
+        </label>
+        <span class="kb-scene-hint" id="kbSceneHint">Switching scenes switches the knowledge base accordingly; only clauses matching the current task are cited during analysis</span>
+      </div>
+      <div class="kb-upload">
+        <label class="drop-mini" for="kbFiles">+ Upload Files (txt / md / json / csv / pdf)</label>
+        <input id="kbFiles" type="file" multiple accept=".txt,.md,.json,.csv,.pdf" hidden />
+        <span id="kbUploadMsg" class="msg"></span>
+      </div>
+      <details class="kb-paste">
+        <summary>Or paste text to add</summary>
+        <input id="kbName" type="text" placeholder="Entry name (optional)" />
+        <textarea id="kbText" placeholder="Paste fire-safety regulations, security policies, traffic management rules, public-order inspection points, etc.…"></textarea>
+        <button id="kbAdd" class="btn small">Add Text</button>
+      </details>
+      <ul id="kbList" class="kb-list"></ul>
+    </section>
+
+    <!-- 4. Image upload and analysis -->
+    <section class="card" id="img-card">
+      <div class="card-head">
+        <h2>④ Image Upload and Analysis</h2>
+        <span class="hint">Single or batch upload (jpg/png/webp/gif/bmp/tiff) · Large images are compressed automatically to save bandwidth and tokens</span>
+      </div>
+
+      <div id="dropZone" class="dropzone">
+        <p>Drag images here, or <span class="link">click to select files</span></p>
+        <input id="imgInput" type="file" multiple accept="image/*" hidden />
+      </div>
+
+      <div class="options">
+        <label class="chk"><input type="checkbox" id="optKb" checked /> Knowledge-base enhancement (auto-cite relevant clauses)</label>
+        <label class="chk"><input type="checkbox" id="optFocus" /> Specify focus areas</label>
+        <input id="focusInput" type="text" placeholder="e.g. switchgear room / main road / community entrance" disabled />
+      </div>
+
+      <div id="preview" class="preview-grid"></div>
+
+      <div class="analyze-bar">
+        <button id="analyzeBtn" class="btn primary" disabled>Start Analysis</button>
+        <button id="clearBtn" class="btn ghost">Clear</button>
+        <span id="progressText" class="msg"></span>
+      </div>
+      <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+    </section>
+
+    <!-- 5. Results -->
+    <section class="card" id="result-card" hidden>
+      <div class="card-head">
+        <h2>⑤ Analysis Results</h2>
+        <div class="result-actions">
+          <button id="exportMd" class="btn small">Export Markdown</button>
+          <button id="exportJson" class="btn small">Export JSON</button>
+        </div>
+      </div>
+      <div id="summary" class="summary"></div>
+      <div id="results" class="results"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>Smart City Vision Inspector — every analysis is produced by the vision model you configure. Results are for reference only; for official inspections, always defer to a qualified professional body.</div>
+    <div class="footer-dev">Developed by Yiwei Ou</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
