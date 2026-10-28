@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "usedKnowledge": true,
+  "retrievedClauses": [
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "1. Signal compliance: vehicles and pedestrians must obey traffic lights, signs and markings; running red lights and driving the wrong way are strictly prohibited. [Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》)]",
+      "score": 0.9607689228305227
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "2. Illegal parking: motor vehicles must park orderly within marked bays and must not occupy fire lanes, tactile paving for the blind, intersections or crosswalks. [Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 56]",
+      "score": 0.7453559924999299
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "6. Road furniture: traffic signs, markings, guardrails and signals must be intact and legible, with defects repaired promptly.",
+      "score": 0.48507125007266594
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "5. Congestion and flow: junctions and the areas around schools and hospitals must be kept clear to avoid prolonged congestion.",
+      "score": 0.24253562503633297
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "3. Road occupation: setting up stalls or stacking goods on carriageways or footways so as to obstruct passage is strictly prohibited.",
+      "score": 0.22360679774997896
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "7. Stop order: areas around bus and school-bus stops must remain orderly, with no prolonged kerb occupation for boarding or alighting.",
+      "score": 0.2182178902359924
+    }
+  ],
+  "elapsedMs": 33509,
+  "usage": {
+    "prompt_tokens": 2894,
+    "completion_tokens": 564,
+    "total_tokens": 3458
+  },
+  "riskLevel": "danger",
+  "scene": "A street scene with a white SUV parked on the sidewalk, trees lining the walkway, and a pedestrian walking along the sidewalk. A yellow three-wheeled vehicle is partially visible on the right side of the image.",
+  "description": "The image shows a residential or urban street with a wide sidewalk bordered by trees with whitewashed trunks. A white SUV is parked directly on the sidewalk, occupying part of the pedestrian path. The sidewalk appears to be paved and includes tactile paving near the curb. A pedestrian is walking in the distance, and there are no visible traffic signals or intersections in the immediate area. On the far right, a yellow three-wheeled vehicle is parked near the curb, possibly on the road edge. No vehicles are seen driving, and there is no indication of congestion or collisions.",
+  "findings": [
+    {
+      "type": "illegal parking",
+      "severity": "high",
+      "evidence": "A white SUV is parked on the sidewalk, obstructing pedestrian passage.",
+      "explanation": "Parking on the sidewalk violates traffic regulations as it impedes pedestrian movement and may pose a safety hazard, especially for the visually impaired who rely on tactile paving. It also reduces the usable width of the sidewalk, increasing the risk of tripping or collision.",
+      "regulation": "Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 56"
+    },
+    {
+      "type": "road occupation",
+      "severity": "medium",
+      "evidence": "The yellow three-wheeled vehicle is parked close to the curb, potentially encroaching on the roadway or sidewalk.",
+      "explanation": "While not fully obstructing the road, the positioning of the vehicle may contribute to reduced clearance for other vehicles or pedestrians, especially if it extends into the travel lane or sidewalk. This could lead to minor obstruction or safety concerns during peak hours.",
+      "regulation": "Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 3"
+    }
+  ],
+  "verdict": "The scene contains illegal parking and potential road occupation, indicating a violation of traffic order.",
+  "suggestions": [
+    "Enforce removal of the white SUV from the sidewalk and issue a citation for illegal parking.",
+    "Inspect and regulate the parking of the yellow three-wheeled vehicle to ensure compliance with road use regulations."
+  ],
+  "confidence": 0.95,
+  "raw": "```json\n{\n  \"scene\": \"A street scene with a white SUV parked on the sidewalk, trees lining the walkway, and a pedestrian walking along the sidewalk. A yellow three-wheeled vehicle is partially visible on the right side of the image.\",\n  \"description\": \"The image shows a residential or urban street with a wide sidewalk bordered by trees with whitewashed trunks. A white SUV is parked directly on the sidewalk, occupying part of the pedestrian path. The sidewalk appears to be paved and includes tactile paving near the curb. A pedestrian is walking in the distance, and there are no visible traffic signals or intersections in the immediate area. On the far right, a yellow three-wheeled vehicle is parked near the curb, possibly on the road edge. No vehicles are seen driving, and there is no indication of congestion or collisions.\",\n  \"findings\": [\n    {\n      \"type\": \"illegal parking\",\n      \"severity\": \"high\",\n      \"evidence\": \"A white SUV is parked on the sidewalk, obstructing pedestrian passage.\",\n      \"explanation\": \"Parking on the sidewalk violates traffic regulations as it impedes pedestrian movement and may pose a safety hazard, especially for the visually impaired who rely on tactile paving. It also reduces the usable width of the sidewalk, increasing the risk of tripping or collision.\",\n      \"regulation\": \"Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 56\"\n    },\n    {\n      \"type\": \"road occupation\",\n      \"severity\": \"medium\",\n      \"evidence\": \"The yellow three-wheeled vehicle is parked close to the curb, potentially encroaching on the roadway or sidewalk.\",\n      \"explanation\": \"While not fully obstructing the road, the positioning of the vehicle may contribute to reduced clearance for other vehicles or pedestrians, especially if it extends into the travel lane or sidewalk. This could lead to minor obstruction or safety concerns during peak hours.\",\n      \"regulation\": \"Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 3\"\n    }\n  ],\n  \"verdict\": \"The scene contains illegal parking and potential road occupation, indicating a violation of traffic order.\",\n  \"suggestions\": [\n    \"Enforce removal of the white SUV from the sidewalk and issue a citation for illegal parking.\",\n    \"Inspect and regulate the parking of the yellow three-wheeled vehicle to ensure compliance with road use regulations.\"\n  ],\n  \"confidence\": 0.95\n}\n```",
+  "parseError": false,
+  "image": "samples/images/traffic/vehicle-parked-on-sidewalk-1.jpg",
+  "task": "traffic",
+  "model": "qwen-vl-max"
+}

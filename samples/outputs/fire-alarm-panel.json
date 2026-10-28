@@ -1,0 +1,80 @@
+{
+  "ok": true,
+  "usedKnowledge": true,
+  "retrievedClauses": [
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "7. Emergency lighting and exit signage: exit signs and emergency lighting must be intact, correctly oriented, unobstructed and functional on power loss.",
+      "score": 0.9701425001453319
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "5. Fire control room: must be staffed 24 hours a day by certified operators, with complete duty logs and equipment in normal working order.",
+      "score": 0.6123724356957946
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "1. Evacuation routes and exits: evacuation routes and emergency exits must be kept clear at all times; occupying, blocking or sealing them is strictly prohibited. Exit doors must open in the direction of travel and must not be fitted with thresholds or screens. [Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28]",
+      "score": 0.5714285714285714
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "9. Fire service access: fire lanes and fire-service access areas must never be occupied, blocked or obstructed, and must maintain the required clear width and height.",
+      "score": 0.4472135954999579
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "3. Electrical safety: wiring must be protected by conduit and installed properly. Unauthorised connections and overloaded circuits are prohibited. No combustible material may be stacked around distribution boards or cabinets, which must carry warning signs. [GB/T 13869 General guide for safety of electric user (《用电安全导则》)]",
+      "score": 0.4423258684646914
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "2. Fire extinguishers: extinguishers must be provided and maintained per GB 50140 Code for design of extinguisher distribution in buildings (《建筑灭火器配置设计规范》). Pressure gauges and expiry dates must be checked periodically; units must not be removed, obstructed or corroded.",
+      "score": 0.31234752377721214
+    }
+  ],
+  "elapsedMs": 29243,
+  "usage": {
+    "prompt_tokens": 2297,
+    "completion_tokens": 903,
+    "total_tokens": 3200
+  },
+  "riskLevel": "danger",
+  "scene": "A fire alarm control panel (JB-BG-SCM5 type,联动型) mounted on a wall in what appears to be a utility or equipment room. The panel is branded 'SECAIR' and has various buttons, a display screen, and indicator lights. There are paper documents taped to the wall beside it, and electrical conduits run above the panel.",
+  "description": "The image shows a fire alarm control panel installed on a concrete wall. The panel is labeled as a 'JB-BG-SCM5型火灾报警控制器（联动型）', indicating it is a centralized fire alarm system with interlocking capabilities. Above the panel, flexible metal conduit runs horizontally along the wall. To the left of the panel, two sheets of paper are affixed to the wall—one appears to be a log sheet or inspection record, and the other contains operational instructions or warnings. The surrounding area is relatively clean but shows signs of wear and minor dirt accumulation. No visible obstructions block access to the panel, but the presence of loose papers near critical safety equipment raises concerns.",
+  "findings": [
+    {
+      "type": "Unsecured documentation",
+      "severity": "low",
+      "evidence": "Two sheets of paper are taped directly to the wall adjacent to the fire alarm control panel.",
+      "explanation": "Paper documents attached near the fire alarm control panel can become dislodged during emergencies or routine maintenance, potentially obstructing access or causing confusion. Additionally, if these papers are not properly secured, they may interfere with the operation of the panel or create a tripping hazard if they fall. While not immediately dangerous, this represents poor housekeeping and could compromise emergency response efficiency.",
+      "regulation": "Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28 — Evacuation routes and exits must be kept clear at all times; occupying, blocking or sealing them is strictly prohibited."
+    },
+    {
+      "type": "Lack of protective signage",
+      "severity": "medium",
+      "evidence": "No warning sign or identification label is visible on or near the fire alarm control panel.",
+      "explanation": "Fire alarm control panels are critical safety devices that require clear identification and protection from unauthorized tampering or accidental damage. The absence of a warning sign such as 'Fire Alarm Control Panel — Do Not Tamper' increases the risk of interference by non-qualified personnel. This also violates standard practices for marking essential fire safety equipment.",
+      "regulation": "GB/T 13869 General guide for safety of electric user (《用电安全导则》) — Equipment should be clearly marked and protected from unauthorized access."
+    },
+    {
+      "type": "Potential electrical hazard due to conduit installation",
+      "severity": "low",
+      "evidence": "Flexible metal conduit runs above the panel and appears loosely secured with cable ties.",
+      "explanation": "While the conduit itself is properly installed, its loose attachment could lead to mechanical stress on wires over time, especially in environments with vibration or movement. If the conduit becomes detached, it could expose wiring or cause short circuits. Although no immediate danger is evident, long-term risks exist without proper securing.",
+      "regulation": "GB/T 13869 General guide for safety of electric user (《用电安全导则》) — Wiring must be protected by conduit and installed properly."
+    }
+  ],
+  "verdict": "The scene contains minor fire safety hazards related to documentation placement, lack of signage, and potential electrical conduit issues, but no immediate life-threatening risks are present.",
+  "suggestions": [
+    "Remove or securely fasten any loose papers near the fire alarm control panel to prevent obstruction or interference.",
+    "Install a clear warning sign (e.g., 'Fire Alarm Control Panel — Authorized Personnel Only') directly on or adjacent to the panel.",
+    "Inspect and re-secure the flexible conduit above the panel using appropriate clamps or supports to ensure long-term integrity."
+  ],
+  "confidence": 0.85,
+  "raw": "```json\n{\n  \"scene\": \"A fire alarm control panel (JB-BG-SCM5 type,联动型) mounted on a wall in what appears to be a utility or equipment room. The panel is branded 'SECAIR' and has various buttons, a display screen, and indicator lights. There are paper documents taped to the wall beside it, and electrical conduits run above the panel.\",\n  \"description\": \"The image shows a fire alarm control panel installed on a concrete wall. The panel is labeled as a 'JB-BG-SCM5型火灾报警控制器（联动型）', indicating it is a centralized fire alarm system with interlocking capabilities. Above the panel, flexible metal conduit runs horizontally along the wall. To the left of the panel, two sheets of paper are affixed to the wall—one appears to be a log sheet or inspection record, and the other contains operational instructions or warnings. The surrounding area is relatively clean but shows signs of wear and minor dirt accumulation. No visible obstructions block access to the panel, but the presence of loose papers near critical safety equipment raises concerns.\",\n  \"findings\": [\n    {\n      \"type\": \"Unsecured documentation\",\n      \"severity\": \"low\",\n      \"evidence\": \"Two sheets of paper are taped directly to the wall adjacent to the fire alarm control panel.\",\n      \"explanation\": \"Paper documents attached near the fire alarm control panel can become dislodged during emergencies or routine maintenance, potentially obstructing access or causing confusion. Additionally, if these papers are not properly secured, they may interfere with the operation of the panel or create a tripping hazard if they fall. While not immediately dangerous, this represents poor housekeeping and could compromise emergency response efficiency.\",\n      \"regulation\": \"Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28 — Evacuation routes and exits must be kept clear at all times; occupying, blocking or sealing them is strictly prohibited.\"\n    },\n    {\n      \"type\": \"Lack of protective signage\",\n      \"severity\": \"medium\",\n      \"evidence\": \"No warning sign or identification label is visible on or near the fire alarm control panel.\",\n      \"explanation\": \"Fire alarm control panels are critical safety devices that require clear identification and protection from unauthorized tampering or accidental damage. The absence of a warning sign such as 'Fire Alarm Control Panel — Do Not Tamper' increases the risk of interference by non-qualified personnel. This also violates standard practices for marking essential fire safety equipment.\",\n      \"regulation\": \"GB/T 13869 General guide for safety of electric user (《用电安全导则》) — Equipment should be clearly marked and protected from unauthorized access.\"\n    },\n    {\n      \"type\": \"Potential electrical hazard due to conduit installation\",\n      \"severity\": \"low\",\n      \"evidence\": \"Flexible metal conduit runs above the panel and appears loosely secured with cable ties.\",\n      \"explanation\": \"While the conduit itself is properly installed, its loose attachment could lead to mechanical stress on wires over time, especially in environments with vibration or movement. If the conduit becomes detached, it could expose wiring or cause short circuits. Although no immediate danger is evident, long-term risks exist without proper securing.\",\n      \"regulation\": \"GB/T 13869 General guide for safety of electric user (《用电安全导则》) — Wiring must be protected by conduit and installed properly.\"\n    }\n  ],\n  \"verdict\": \"The scene contains minor fire safety hazards related to documentation placement, lack of signage, and potential electrical conduit issues, but no immediate life-threatening risks are present.\",\n  \"suggestions\": [\n    \"Remove or securely fasten any loose papers near the fire alarm control panel to prevent obstruction or interference.\",\n    \"Install a clear warning sign (e.g., 'Fire Alarm Control Panel — Authorized Personnel Only') directly on or adjacent to the panel.\",\n    \"Inspect and re-secure the flexible conduit above the panel using appropriate clamps or supports to ensure long-term integrity.\"\n  ],\n  \"confidence\": 0.85\n}\n```",
+  "parseError": false,
+  "image": "samples/images/fire/fire-alarm-control-panel.jpg",
+  "task": "fire",
+  "model": "qwen-vl-max"
+}

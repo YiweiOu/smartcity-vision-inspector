@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "usedKnowledge": true,
+  "retrievedClauses": [
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "1. Signal compliance: vehicles and pedestrians must obey traffic lights, signs and markings; running red lights and driving the wrong way are strictly prohibited. [Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》)]",
+      "score": 0.9607689228305227
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "2. Illegal parking: motor vehicles must park orderly within marked bays and must not occupy fire lanes, tactile paving for the blind, intersections or crosswalks. [Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 56]",
+      "score": 0.7453559924999299
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "5. Congestion and flow: junctions and the areas around schools and hospitals must be kept clear to avoid prolonged congestion.",
+      "score": 0.48507125007266594
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "6. Road furniture: traffic signs, markings, guardrails and signals must be intact and legible, with defects repaired promptly.",
+      "score": 0.48507125007266594
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "4. Pedestrians and non-motorised vehicles: pedestrians must use the footway and cross at zebra crossings; cyclists must use cycle lanes, not ride against traffic and not carry passengers unlawfully.",
+      "score": 0.4082482904638631
+    },
+    {
+      "doc": "Traffic order — general reference clauses (sample)",
+      "text": "3. Road occupation: setting up stalls or stacking goods on carriageways or footways so as to obstruct passage is strictly prohibited.",
+      "score": 0.22360679774997896
+    }
+  ],
+  "elapsedMs": 23723,
+  "usage": {
+    "prompt_tokens": 2499,
+    "completion_tokens": 513,
+    "total_tokens": 3012
+  },
+  "riskLevel": "danger",
+  "scene": "A white Volkswagen car is parked on a sidewalk at night, partially over a drainage grate, with trees and a curb visible nearby.",
+  "description": "The image shows a rear view of a white Volkswagen hatchback parked on a paved sidewalk area at night. The vehicle is positioned directly over a metal drainage grate, flanked by two tree trunks. The surrounding pavement appears wet, suggesting recent rain. No pedestrians, cyclists, or traffic signals are visible in the frame. The car is not in a marked parking space, and its placement obstructs part of the pedestrian walkway. In the background, another vehicle is parked further down the street, but no signs of congestion or collisions are evident.",
+  "findings": [
+    {
+      "type": "illegal parking",
+      "severity": "high",
+      "evidence": "The white Volkswagen is parked on the sidewalk, directly over a drainage grate, without being within any marked parking bay.",
+      "explanation": "Parking on the sidewalk obstructs pedestrian movement and may pose a hazard to visually impaired individuals using tactile paving. It also violates urban traffic order regulations that prohibit vehicles from occupying footways.",
+      "regulation": "Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 56"
+    },
+    {
+      "type": "road occupation",
+      "severity": "medium",
+      "evidence": "The vehicle occupies part of the sidewalk, including a drainage grate, which is a public utility area.",
+      "explanation": "Occupying public infrastructure such as drainage grates can impede maintenance access and potentially cause water drainage issues during rainfall, increasing flood risk.",
+      "regulation": "Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 3"
+    }
+  ],
+  "verdict": "The scene contains illegal parking and road occupation violations due to the vehicle being parked on the sidewalk over a drainage grate.",
+  "suggestions": [
+    "Issue a warning or fine to the vehicle owner for illegal parking on the sidewalk.",
+    "Install clear signage or physical barriers to prevent future sidewalk parking in this area."
+  ],
+  "confidence": 0.95,
+  "raw": "{\n  \"scene\": \"A white Volkswagen car is parked on a sidewalk at night, partially over a drainage grate, with trees and a curb visible nearby.\",\n  \"description\": \"The image shows a rear view of a white Volkswagen hatchback parked on a paved sidewalk area at night. The vehicle is positioned directly over a metal drainage grate, flanked by two tree trunks. The surrounding pavement appears wet, suggesting recent rain. No pedestrians, cyclists, or traffic signals are visible in the frame. The car is not in a marked parking space, and its placement obstructs part of the pedestrian walkway. In the background, another vehicle is parked further down the street, but no signs of congestion or collisions are evident.\",\n  \"findings\": [\n    {\n      \"type\": \"illegal parking\",\n      \"severity\": \"high\",\n      \"evidence\": \"The white Volkswagen is parked on the sidewalk, directly over a drainage grate, without being within any marked parking bay.\",\n      \"explanation\": \"Parking on the sidewalk obstructs pedestrian movement and may pose a hazard to visually impaired individuals using tactile paving. It also violates urban traffic order regulations that prohibit vehicles from occupying footways.\",\n      \"regulation\": \"Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 56\"\n    },\n    {\n      \"type\": \"road occupation\",\n      \"severity\": \"medium\",\n      \"evidence\": \"The vehicle occupies part of the sidewalk, including a drainage grate, which is a public utility area.\",\n      \"explanation\": \"Occupying public infrastructure such as drainage grates can impede maintenance access and potentially cause water drainage issues during rainfall, increasing flood risk.\",\n      \"regulation\": \"Road Traffic Safety Law of the PRC (《中华人民共和国道路交通安全法》), Art. 3\"\n    }\n  ],\n  \"verdict\": \"The scene contains illegal parking and road occupation violations due to the vehicle being parked on the sidewalk over a drainage grate.\",\n  \"suggestions\": [\n    \"Issue a warning or fine to the vehicle owner for illegal parking on the sidewalk.\",\n    \"Install clear signage or physical barriers to prevent future sidewalk parking in this area.\"\n  ],\n  \"confidence\": 0.95\n}",
+  "parseError": false,
+  "image": "samples/images/traffic/vehicle-parked-on-sidewalk-2.jpg",
+  "task": "traffic",
+  "model": "qwen-vl-max"
+}

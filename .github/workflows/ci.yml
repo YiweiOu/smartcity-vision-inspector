@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
+      - name: Syntax check
+        run: |
+          node --check server.js
+          node --check public/app.js
+      - name: No leaked private identifiers
+        run: |
+          # The scan excludes .github because this workflow file itself contains
+          # the search pattern and would otherwise always match itself.
+          if grep -rIniE "时代凌宇|九天视界" \
+               --exclude-dir=node_modules \
+               --exclude-dir=.git \
+               --exclude-dir=.github \
+               --exclude="*.yml" \
+               . ; then
+            echo "::error::Private organisation identifiers found in the repo"
+            exit 1
+          fi
+      - name: Smoke test (server boots and serves the UI)
+        run: |
+          node server.js &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:3000/api/health > /dev/null; then break; fi
+            sleep 1
+          done
+          curl -sf http://localhost:3000/api/health
+          curl -sf http://localhost:3000/ | grep -q "Smart City Vision Inspector"
+          curl -sf http://localhost:3000/api/providers | grep -q "providers"
+          curl -sf http://localhost:3000/api/knowledge | grep -q "seed-fire"

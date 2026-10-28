@@ -1,0 +1,80 @@
+{
+  "ok": true,
+  "usedKnowledge": true,
+  "retrievedClauses": [
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "4. Flammable and explosive materials: such materials must be stored separately in dedicated stores away from ignition and heat sources, with ventilation, explosion-proof, lightning-protection and anti-static provisions; incompatible materials must never be co-stored.",
+      "score": 0.9128709291752769
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "3. Electrical safety: wiring must be protected by conduit and installed properly. Unauthorised connections and overloaded circuits are prohibited. No combustible material may be stacked around distribution boards or cabinets, which must carry warning signs. [GB/T 13869 General guide for safety of electric user (《用电安全导则》)]",
+      "score": 0.7372097807744856
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "7. Emergency lighting and exit signage: exit signs and emergency lighting must be intact, correctly oriented, unobstructed and functional on power loss.",
+      "score": 0.7276068751089989
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "1. Evacuation routes and exits: evacuation routes and emergency exits must be kept clear at all times; occupying, blocking or sealing them is strictly prohibited. Exit doors must open in the direction of travel and must not be fitted with thresholds or screens. [Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28]",
+      "score": 0.7142857142857143
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "9. Fire service access: fire lanes and fire-service access areas must never be occupied, blocked or obstructed, and must maintain the required clear width and height.",
+      "score": 0.6708203932499369
+    },
+    {
+      "doc": "Fire safety — general reference clauses (sample)",
+      "text": "5. Fire control room: must be staffed 24 hours a day by certified operators, with complete duty logs and equipment in normal working order.",
+      "score": 0.6123724356957946
+    }
+  ],
+  "elapsedMs": 32292,
+  "usage": {
+    "prompt_tokens": 2279,
+    "completion_tokens": 813,
+    "total_tokens": 3092
+  },
+  "riskLevel": "danger",
+  "scene": "A storage area with fire extinguishers placed on wooden pallets, adjacent to large bags of chemical materials and tires. Warning signs are posted on the wall.",
+  "description": "The image shows a storage or utility area with multiple red fire extinguishers stacked on top of a wooden pallet structure. The pallet is positioned against a concrete wall with safety signage, including 'No Burning' and 'Caution Danger' warnings. To the right of the pallet, there is a large white bag labeled with Chinese characters indicating it contains propylene (丙烯), a flammable chemical. Two black tires are visible on the left side. The area appears cluttered, with combustible materials stored near fire safety equipment.",
+  "findings": [
+    {
+      "type": "Improper storage of fire extinguishers",
+      "severity": "high",
+      "evidence": "Fire extinguishers are placed on a wooden pallet that is not designed for such use and may be unstable or obstructive.",
+      "explanation": "Fire extinguishers must be mounted securely and accessible at all times. Placing them on a wooden pallet increases the risk of tipping over or being blocked during an emergency. Additionally, the pallet itself is combustible and could contribute to fire spread if ignited.",
+      "regulation": "Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28 — Evacuation routes and exits must be kept clear; fire safety equipment must be accessible and properly maintained."
+    },
+    {
+      "type": "Storage of flammable materials near ignition sources",
+      "severity": "high",
+      "evidence": "A large bag labeled 'propylene' (a flammable chemical) is stored next to fire extinguishers and tires, which are potential ignition sources.",
+      "explanation": "Propylene is highly flammable and volatile. Storing it in close proximity to other combustibles like tires and wooden pallets creates a significant fire hazard. This violates safe separation requirements for hazardous materials.",
+      "regulation": "4. Flammable and explosive materials: such materials must be stored separately in dedicated stores away from ignition and heat sources, with ventilation, explosion-proof, lightning-protection and anti-static provisions; incompatible materials must never be co-stored."
+    },
+    {
+      "type": "Combustible materials blocking access to fire safety equipment",
+      "severity": "medium",
+      "evidence": "Wooden pallets and surrounding items partially obscure the fire extinguishers and reduce accessibility.",
+      "explanation": "Even though the extinguishers are visible, their placement on a pallet makes them less accessible and potentially difficult to retrieve quickly during an emergency. This compromises response time.",
+      "regulation": "Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28 — Evacuation routes and exits must be kept clear; occupying, blocking or sealing them is strictly prohibited."
+    }
+  ],
+  "verdict": "This scene contains multiple fire hazards due to improper storage of flammable materials and fire extinguishers, posing a serious risk to safety.",
+  "suggestions": [
+    "Relocate the fire extinguishers to a secure, wall-mounted bracket or designated fire equipment rack, ensuring they are easily accessible and unobstructed.",
+    "Store the propylene bag in a dedicated, ventilated, and fire-resistant storage cabinet away from ignition sources and combustible materials.",
+    "Remove or reposition the wooden pallet and tires to eliminate clutter and ensure clear access to fire safety equipment and pathways."
+  ],
+  "confidence": 0.95,
+  "raw": "```json\n{\n  \"scene\": \"A storage area with fire extinguishers placed on wooden pallets, adjacent to large bags of chemical materials and tires. Warning signs are posted on the wall.\",\n  \"description\": \"The image shows a storage or utility area with multiple red fire extinguishers stacked on top of a wooden pallet structure. The pallet is positioned against a concrete wall with safety signage, including 'No Burning' and 'Caution Danger' warnings. To the right of the pallet, there is a large white bag labeled with Chinese characters indicating it contains propylene (丙烯), a flammable chemical. Two black tires are visible on the left side. The area appears cluttered, with combustible materials stored near fire safety equipment.\",\n  \"findings\": [\n    {\n      \"type\": \"Improper storage of fire extinguishers\",\n      \"severity\": \"high\",\n      \"evidence\": \"Fire extinguishers are placed on a wooden pallet that is not designed for such use and may be unstable or obstructive.\",\n      \"explanation\": \"Fire extinguishers must be mounted securely and accessible at all times. Placing them on a wooden pallet increases the risk of tipping over or being blocked during an emergency. Additionally, the pallet itself is combustible and could contribute to fire spread if ignited.\",\n      \"regulation\": \"Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28 — Evacuation routes and exits must be kept clear; fire safety equipment must be accessible and properly maintained.\"\n    },\n    {\n      \"type\": \"Storage of flammable materials near ignition sources\",\n      \"severity\": \"high\",\n      \"evidence\": \"A large bag labeled 'propylene' (a flammable chemical) is stored next to fire extinguishers and tires, which are potential ignition sources.\",\n      \"explanation\": \"Propylene is highly flammable and volatile. Storing it in close proximity to other combustibles like tires and wooden pallets creates a significant fire hazard. This violates safe separation requirements for hazardous materials.\",\n      \"regulation\": \"4. Flammable and explosive materials: such materials must be stored separately in dedicated stores away from ignition and heat sources, with ventilation, explosion-proof, lightning-protection and anti-static provisions; incompatible materials must never be co-stored.\"\n    },\n    {\n      \"type\": \"Combustible materials blocking access to fire safety equipment\",\n      \"severity\": \"medium\",\n      \"evidence\": \"Wooden pallets and surrounding items partially obscure the fire extinguishers and reduce accessibility.\",\n      \"explanation\": \"Even though the extinguishers are visible, their placement on a pallet makes them less accessible and potentially difficult to retrieve quickly during an emergency. This compromises response time.\",\n      \"regulation\": \"Fire Protection Law of the PRC (《中华人民共和国消防法》), Art. 28 — Evacuation routes and exits must be kept clear; occupying, blocking or sealing them is strictly prohibited.\"\n    }\n  ],\n  \"verdict\": \"This scene contains multiple fire hazards due to improper storage of flammable materials and fire extinguishers, posing a serious risk to safety.\",\n  \"suggestions\": [\n    \"Relocate the fire extinguishers to a secure, wall-mounted bracket or designated fire equipment rack, ensuring they are easily accessible and unobstructed.\",\n    \"Store the propylene bag in a dedicated, ventilated, and fire-resistant storage cabinet away from ignition sources and combustible materials.\",\n    \"Remove or reposition the wooden pallet and tires to eliminate clutter and ensure clear access to fire safety equipment and pathways.\"\n  ],\n  \"confidence\": 0.95\n}\n```",
+  "parseError": false,
+  "image": "samples/images/fire/extinguishers-blocked-by-pallet.jpg",
+  "task": "fire",
+  "model": "qwen-vl-max"
+}
